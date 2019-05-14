@@ -12,5 +12,20 @@
 */
 
 Route::get('/', function () {
+
     return view('welcome');
 });
+
+//route::get('/about',function ()
+
+//{
+    //return view ('pages.about');
+//});
+
+//Route::get('/movie', 'MovieController@index');
+Route::resource('movie', 'MovieController');
+Route::resource('rating','RatingController');
+Route::resource('cast','CastController');
+Route::resource('actor','ActorController');
+Route::resource('genres','genresController');
+Route::resource('genres_list','genres_listController');
