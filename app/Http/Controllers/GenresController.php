@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Genre;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class GenresController extends Controller
 {
@@ -35,7 +36,16 @@ class GenresController extends Controller
     public function store(Request $request)
     {
 
-        Genre::create($request->all());
+       // Genre::Create($request->all());
+        $genre = new Genre();
+        $genre->genre = $request->genre;
+        $genre->save();
+    }
+
+    public function getGenreId()
+    {
+        $last_row=DB::table('genres')->orderBy('GenreId', 'DESC')->first();
+        return $last_row->GenreId;
     }
 
     /**

@@ -29,3 +29,7 @@ Route::resource('cast','CastController');
 Route::resource('actor','ActorController');
 Route::resource('genres','genresController');
 Route::resource('genres_list','genres_listController');
+Route::get('getmoviesid', 'MovieController@getmoviesid');
+Route::get('getgenreid', 'MovieController@getmoviesid');
+Route::get('getgenreid', 'GenresController@getGenreId');
+Route::get('getactorid', 'ActorController@getactorid');

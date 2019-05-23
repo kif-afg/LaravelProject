@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Genre;
+use App\Genres_list;
 use Illuminate\Http\Request;
 
 class Genres_listController extends Controller
@@ -34,7 +36,12 @@ class Genres_listController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Genres_list::create($request->all());
+        $glist = new Genres_list();
+        $glist->moviesid = $request->moviesid;
+        $glist ->genreid = $request->genreid;
+        $glist->save();
+        return $glist;
     }
 
     /**

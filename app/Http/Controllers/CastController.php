@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Database\Eloquent\Model;
+use App\Cast;
 use Illuminate\Http\Request;
 
 class CastController extends Controller
@@ -34,7 +35,12 @@ class CastController extends Controller
      */
     public function store(Request $request)
     {
-        Cast::create($request->all());
+       // Cast::Create($request->all());
+        $cast = new Cast;
+        $cast->MoviesId = $request->MoviesId;
+        $cast->ActorsId = $request->ActorsId;
+
+        $cast->save();
     }
 
     /**

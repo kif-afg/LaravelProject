@@ -16,7 +16,7 @@ class Movie extends Model
 
     ];
 
-    public function Ratings()
+    public function Rating()
     {
         return $this->hasMany(Rating::class);
     }

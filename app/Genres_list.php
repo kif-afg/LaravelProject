@@ -6,15 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Genres_list extends Model
 {
+    protected $table='genres_lists';
     protected $fillable =
         [
-            'GenreID',
-            'MoviesId'
+
+            'MoviesId',
+            'GenreID'
         ];
 
-    public function Genres()
-    {
-        return $this->hasMany(Genre::class);
-    }
 
 }

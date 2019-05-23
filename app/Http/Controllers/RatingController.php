@@ -1,10 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Movie;
 use App\Rating;
 use Illuminate\Http\Request;
-
 class RatingController extends Controller
 {
     /**
@@ -14,7 +13,7 @@ class RatingController extends Controller
      */
     public function index()
     {
-        //
+        return Rating::all();
     }
 
     /**
@@ -35,7 +34,12 @@ class RatingController extends Controller
      */
     public function store(Request $request)
     {
-        Rating::create($request->all());
+       // Rating::create($request->all());
+        $rating = new Rating();
+        $rating->MoviesId = $request->MoviesId;
+        $rating->rating = $request->rating;
+        $rating->save();
+
     }
 
     /**
@@ -46,7 +50,8 @@ class RatingController extends Controller
      */
     public function show($id)
     {
-        //
+        $movies = Movie::find($id);
+        return $movies->MoviesId;
     }
 
     /**

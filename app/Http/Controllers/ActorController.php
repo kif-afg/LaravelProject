@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use App\Actor;
 use Illuminate\Http\Request;
 
@@ -34,8 +34,19 @@ class ActorController extends Controller
      */
     public function store(Request $request)
     {
-        Actor::create($request->all());
+        //Actor::create($request->all());
+        $actor = new Actor();
+        $actor->firstname = $request->firstname;
+        $actor->gender = $request->gender;
+        $actor->lastname = $request->lastname;
+        $actor->save();
 
+    }
+
+    public function getactorid()
+    {
+        $last_row=DB::table('actors')->orderBy('ActorId', 'DESC')->first();
+        return $last_row->ActorId;
     }
 
     /**
